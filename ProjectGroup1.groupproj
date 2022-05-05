@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{94EBF42E-5D19-4F0C-9C00-D4C94F89BB09}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="RemoteHostController.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RemoteHostController">
+        <MSBuild Projects="RemoteHostController.dproj"/>
+    </Target>
+    <Target Name="RemoteHostController:Clean">
+        <MSBuild Projects="RemoteHostController.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RemoteHostController:Make">
+        <MSBuild Projects="RemoteHostController.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RemoteHostController"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RemoteHostController:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RemoteHostController:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
